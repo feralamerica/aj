@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Anand Jon Record, crimes, convictions, and the network seeking his release</title>
+<meta name="description" content="A sourced public reference on the crimes and convictions of fashion designer Anand Jon Alexander, and the documented network working for his release." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0F1216; --surface:#171B21; --surface2:#1E242C; --line:#2A313A;
+    --text:#F3F5F8; --muted:#B9C2CE; --accent:#E5484D; --accent-soft:#3a1416;
+    --doc:#3FB950; --doc-bg:#0f2417; --alleged:#E3B341; --alleged-bg:#2a2410;
+    --focus:#7CC7FF; --maxw:1080px; --radius:14px;
+  }
+  html[data-theme="light"]{
+    --bg:#FFFFFF; --surface:#F5F6F8; --surface2:#ECEFF3; --line:#D8DEE6;
+    --text:#12161C; --muted:#47535F; --accent:#C1121F; --accent-soft:#fbe9ea;
+    --doc:#1a7f37; --doc-bg:#e7f4ec; --alleged:#8a6100; --alleged-bg:#f7efd8;
+    --focus:#0B62C4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:76px;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-weight:400; line-height:1.65; font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--text); text-underline-offset:3px; text-decoration-thickness:1px;}
+  a:hover{color:var(--accent);}
+  :focus-visible{outline:3px solid var(--focus); outline-offset:2px; border-radius:4px;}
+  .skip{position:absolute; left:-999px; top:0; background:var(--accent); color:#fff; padding:.6rem 1rem; z-index:100; border-radius:0 0 8px 0;}
+  .skip:focus{left:0;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+
+  /* Nav */
+  header.site{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; gap:16px; justify-content:space-between; padding:12px 20px; max-width:var(--maxw); margin:0 auto;}
+  .brand{font-weight:700; letter-spacing:.02em; font-size:1.02rem; display:flex; align-items:center; gap:10px;}
+  .brand .dot{width:11px; height:11px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);}
+  .navlinks{display:flex; gap:6px; flex-wrap:wrap; align-items:center;}
+  .navlinks a{font-size:.86rem; color:var(--muted); text-decoration:none; padding:6px 10px; border-radius:8px; font-weight:500;}
+  .navlinks a:hover{color:var(--text); background:var(--surface2);}
+  .toggle{background:var(--surface2); color:var(--text); border:1px solid var(--line); border-radius:8px; padding:7px 11px; font-family:inherit; font-size:.8rem; font-weight:500; cursor:pointer; display:flex; align-items:center; gap:6px;}
+  .toggle:hover{border-color:var(--accent);}
+
+  /* Hero */
+  .hero{padding:64px 0 40px; border-bottom:1px solid var(--line); background:radial-gradient(1200px 400px at 70% -10%, var(--accent-soft), transparent 70%);}
+  .kicker{color:var(--accent); font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:.74rem; margin:0 0 14px;}
+  h1{font-size:clamp(2rem,5vw,3.15rem); line-height:1.1; font-weight:700; margin:0 0 18px; letter-spacing:-.01em;}
+  .lede{font-size:1.15rem; color:var(--muted); max-width:70ch; margin:0 0 30px;}
+  .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; margin-top:8px;}
+  .fact{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px;}
+  .fact b{display:block; font-size:1.9rem; font-weight:700; line-height:1; margin-bottom:8px;}
+  .fact span{color:var(--muted); font-size:.92rem;}
+
+  /* Sections */
+  main section{padding:56px 0; border-bottom:1px solid var(--line);}
+  h2{font-size:clamp(1.5rem,3vw,2rem); font-weight:700; margin:0 0 6px; letter-spacing:-.01em;}
+  .section-sub{color:var(--muted); margin:0 0 26px; max-width:72ch;}
+  h3{font-size:1.15rem; font-weight:600; margin:26px 0 10px;}
+  p{max-width:74ch;}
+  .p-muted{color:var(--muted);}
+
+  /* Evidence tags */
+  .tag{display:inline-flex; align-items:center; gap:6px; font-size:.72rem; font-weight:600; letter-spacing:.03em; text-transform:uppercase; padding:3px 9px; border-radius:999px; border:1px solid; white-space:nowrap;}
+  .tag::before{content:""; width:7px; height:7px; border-radius:50%;}
+  .tag.doc{color:var(--doc); border-color:var(--doc); background:var(--doc-bg);} .tag.doc::before{background:var(--doc);}
+  .tag.all{color:var(--alleged); border-color:var(--alleged); background:var(--alleged-bg);} .tag.all::before{background:var(--alleged);}
+
+  .legend{display:flex; gap:12px; flex-wrap:wrap; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:14px 16px; margin-bottom:8px;}
+  .legend div{font-size:.9rem; color:var(--muted); display:flex; gap:8px; align-items:center;}
+
+  /* Timeline */
+  .timeline{list-style:none; padding:0; margin:18px 0 0;}
+  .timeline li{position:relative; padding:0 0 22px 28px; border-left:2px solid var(--line);}
+  .timeline li::before{content:""; position:absolute; left:-7px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--accent); border:2px solid var(--bg);}
+  .timeline .date{font-weight:600; color:var(--accent); font-size:.9rem;}
+
+  /* Cards grid */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px; margin-top:20px;}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px; display:flex; flex-direction:column; gap:10px;}
+  .card h3{margin:0; font-size:1.15rem;}
+  .card .role{color:var(--muted); font-size:.9rem; margin:0;}
+  .card ul{margin:8px 0 0; padding-left:18px;}
+  .card li{margin-bottom:7px; font-size:.94rem;}
+  .tags-row{display:flex; gap:8px; flex-wrap:wrap;}
+  .note-inv{background:var(--alleged-bg); border:1px solid var(--alleged); border-radius:10px; padding:10px 12px; font-size:.86rem; color:var(--text);}
+
+  /* Connections map */
+  .map{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px; margin-top:8px;}
+  .rel{display:grid; grid-template-columns:1fr; gap:10px;}
+  .rel div{padding:11px 14px; background:var(--surface2); border-radius:10px; border-left:3px solid var(--accent); font-size:.95rem;}
+  .rel b{font-weight:600;}
+
+  /* Link lists */
+  .links{list-style:none; padding:0; margin:16px 0 0; display:grid; gap:10px;}
+  .links li{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:13px 16px;}
+  .links a{font-weight:500; text-decoration:none;}
+  .links a:hover{text-decoration:underline;}
+  .links .src{display:block; color:var(--muted); font-size:.82rem; margin-top:3px;}
+
+  .callout{background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px; margin:22px 0;}
+  .callout p:last-child{margin-bottom:0;}
+
+  footer{padding:44px 0 60px;}
+  footer p{color:var(--muted); font-size:.88rem; max-width:80ch;}
+  .fair{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; margin:18px 0;}
+  .backtop{font-size:.85rem; color:var(--muted); text-decoration:none;}
+
+  @media (max-width:640px){
+    .navlinks{display:none;}
+    body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="nav">
+    <span class="brand"><span class="dot" aria-hidden="true"></span> The Anand Jon Record</span>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="#crimes">The Crimes</a>
+      <a href="#victims">The Method</a>
+      <a href="#records">Court Records</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#network">The Network</a>
+      <a href="#alliances">The Alliances</a>
+      <a href="#ongoing">From Prison</a>
+      <a href="#method">Standards</a>
+    </nav>
+    <button class="toggle" id="themeBtn" aria-label="Switch color theme">◐ Theme</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <!--
+      HERO IMAGE SLOT: to add a hero image once you have the rights to use it,
+      drop the file in this folder and uncomment the block below. Use a neutral,
+      clearly-sourced identifying image with a caption. Avoid the prison-injury
+      photo as the hero (rights unconfirmed, and it reads as sympathetic to him).
+      <figure class="hero-figure">
+        <img src="hero.jpg" alt="Anand Jon Alexander" />
+        <figcaption>Anand Jon Alexander. Source: [credit], [date].</figcaption>
+      </figure>
+    -->
+    <p class="kicker">A sourced public reference</p>
+    <h1>What Anand Jon did, who is working to free him, and how it continues from a prison cell.</h1>
+    <p class="lede">Anand Jon Alexander is a fashion designer serving fifty-nine years to life in California for sexually abusing young women and girls he lured with modeling promises. This site collects the public record of his crimes and convictions, the coverage of them, and the documented network of people and organizations now seeking his release, including a website aimed at girls that presents him as a mentor.</p>
+    <div class="facts">
+      <div class="fact"><b>16</b><span>felony counts a Los Angeles jury convicted him of in 2008</span></div>
+      <div class="fact"><b>59 yrs</b><span>to life, the sentence imposed in 2009</span></div>
+      <div class="fact"><b>3 states</b><span>California, New York, and Texas brought charges</span></div>
+      <div class="fact"><b>14</b><span>the age of some of his victims</span></div>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <section id="crimes">
+    <div class="wrap">
+      <h2>The crimes and the convictions</h2>
+      <p class="section-sub">Everything in this section is a matter of public court record and contemporaneous news reporting.</p>
+
+      <div class="legend" role="note" aria-label="How claims are labeled">
+        <div><span class="tag doc">Documented</span> Court records or a subject's own published words.</div>
+        <div><span class="tag all">Under investigation</span> An attributed allegation, not established fact.</div>
+      </div>
+
+      <h3>California, 2008 <span class="tag doc">Documented</span></h3>
+      <p>On November 13, 2008, a Los Angeles jury convicted Anand Jon Alexander on sixteen counts, including forcible rape, sexual battery, and contributing to the delinquency of minors, tied to seven young accusers, some assaulted at fourteen. The jury acquitted him on four felonies and deadlocked on three. In 2009, Superior Court Judge David Wesley sentenced him to fifty-nine years to life, saying he had shown no remorse. Thirteen women were present in the courtroom. (LA Superior Court case BA327190.)</p>
+
+      <h3>New York, 2013 <span class="tag doc">Documented</span></h3>
+      <p>Facing an initial set of roughly forty-nine charges, Jon pleaded guilty in 2013 to a single count of criminal sexual act involving a woman lured with modeling promises. The agreed term amounted to time already served.</p>
+
+      <h3>Texas, 2007 <span class="tag doc">Documented</span></h3>
+      <p>A Dallas grand jury (292nd Judicial District) returned three sexual-assault indictments, cases F-0772363, F-0772364, and F-0772365, reaching back to alleged offenses in 2002, 2004, and 2005. Warrants issued in 2007. He was never separately tried, because the California sentence subsumed the rest.</p>
+
+      <h3>Timeline</h3>
+      <ul class="timeline">
+        <li><span class="date">1999</span><br>Launches his debut fashion collection; builds a celebrity-adjacent brand.</li>
+        <li><span class="date">2006-2007</span><br>Named to Newsweek's "Who's Next in 2007"; appears on America's Next Top Model.</li>
+        <li><span class="date">March 2007</span><br>Arrested in Beverly Hills as model complaints surface.</li>
+        <li><span class="date">Nov 13, 2008</span><br>Convicted by a Los Angeles jury on sixteen counts.</li>
+        <li><span class="date">2009</span><br>Sentenced to fifty-nine years to life.</li>
+        <li><span class="date">Nov 2009</span><br>An accuser goes public describing online harassment by his supporters after his conviction.</li>
+        <li><span class="date">2013</span><br>Pleads guilty to one count in New York.</li>
+        <li><span class="date">2020</span><br>International Justice Alliance, Inc. is incorporated in Texas.</li>
+        <li><span class="date">2024</span><br>THEBFLY.CO LLC is registered in Nevada.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="victims">
+    <div class="wrap">
+      <h2>The method, and who he preyed upon</h2>
+      <p class="section-sub">Drawn from prosecutors' descriptions and accusers' accounts as reported at trial.</p>
+      <p>Prosecutors described a consistent pattern. Jon contacted aspiring models, many of them teenagers, many from small towns, through social media and email. He complimented their look, promised photo shoots and industry introductions, and paid for their travel to Los Angeles or New York. Once a young woman was isolated in his residence, far from anyone she knew, he assaulted her. Reporting at the time placed the number of accusers across the states at around twenty. He has consistently maintained the encounters were consensual.</p>
+      <div class="callout">
+        <p>At sentencing, accusers addressed the court directly. One, assaulted at fourteen, described how he had taken her adolescence, her trust, and her dream. <span class="tag doc">Documented</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="records">
+    <div class="wrap">
+      <h2>Court records</h2>
+      <p class="section-sub">Case numbers and where the underlying records are held. Court files are public; most are obtained from the relevant clerk of court.</p>
+      <ul class="links">
+        <li><strong>Los Angeles Superior Court, People v. Anand Jon Alexander (case number BA327190)</strong><span class="src">The 2008 conviction. Records via the Los Angeles Superior Court, Clara Shortridge Foltz Criminal Justice Center. (Case number to be confirmed against the court file before it is relied upon.)</span></li>
+        <li><strong>New York, 2013 guilty plea, one count of criminal sexual act</strong><span class="src">Records via the New York County (Manhattan) court system.</span></li>
+        <li><strong>Dallas County, 292nd Judicial District, cases F-0772363, F-0772364, F-0772365</strong><span class="src">The 2007 Texas indictments. Records via the Dallas County District Clerk.</span></li>
+      </ul>
+      <p class="p-muted" style="margin-top:14px; font-size:.9rem;">Direct links will be added as certified copies are obtained. Case numbers are provided so the records can be independently verified.</p>
+    </div>
+  </section>
+
+  <section id="coverage">
+    <div class="wrap">
+      <h2>Press coverage of the case</h2>
+      <p class="section-sub">Contemporaneous and later reporting on the crimes, trial, and sentence.</p>
+      <ul class="links">
+        <li><a href="https://en.wikipedia.org/wiki/Anand_Jon" rel="noopener">Anand Jon, Wikipedia (overview and citations)</a><span class="src">en.wikipedia.org</span></li>
+        <li><a href="https://www.nbclosangeles.com/news/jury-reaches-partial-verdict-in-fashion-designer-rape-case/1845604/" rel="noopener">Fashion Designer Anand Jon Convicted of 16 Counts of Sexual Abuse, NBC Los Angeles</a><span class="src">nbclosangeles.com</span></li>
+        <li><a href="https://www.nbcnews.com/id/wbna32635227" rel="noopener">'Top Model' designer gets 59 years for rapes, NBC News</a><span class="src">nbcnews.com</span></li>
+        <li><a href="https://www.foxnews.com/story/fashion-designer-gets-59-years-to-life-sentence-for-sex-assault.amp" rel="noopener">Fashion Designer Gets 59 Years to Life for Sex Assault, Fox News</a><span class="src">foxnews.com</span></li>
+        <li><a href="https://www.cbsnews.com/news/fashion-designer-anand-jon-alexander-pleads-guilty-to-molesting-would-be-model-in-nyc/" rel="noopener">Pleads guilty to molesting would-be model in NYC, CBS News</a><span class="src">cbsnews.com</span></li>
+        <li><a href="https://www.dallasobserver.com/news/wanted-in-dallas-for-sexual-assault-designer-anand-jons-guilty-in-la-7115258" rel="noopener">Wanted in Dallas for Sexual Assault, Dallas Observer</a><span class="src">dallasobserver.com</span></li>
+        <li><a href="https://www.nbclosangeles.com/news/local/anand-jon-victim-goes-public-says-shes-still-a-victim/1888328/" rel="noopener">Anand Jon Victim Goes Public, Says She's Still a Victim, NBC Los Angeles</a><span class="src">nbclosangeles.com</span></li>
+      </ul>
+      <p class="p-muted" style="margin-top:14px; font-size:.9rem;">This list is being expanded. Additional verified articles will be added over time.</p>
+    </div>
+  </section>
+
+  <section id="network">
+    <div class="wrap">
+      <h2>The network seeking his release</h2>
+      <p class="section-sub">The people and organizations publicly working to free Anand Jon or platforming him, and how they connect. Each entry is labeled by evidence status. Items under investigation are attributed allegations, not established facts.</p>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="tags-row"><span class="tag doc">Documented</span></div>
+          <h3>Sanjana Jon</h3>
+          <p class="role">Anand Jon's sister; the public face of the campaign for his release.</p>
+          <ul>
+            <li>Leads and fronts the long-running effort to overturn his conviction.</li>
+            <li>A juror-contact issue involving "his sister" appears in the appellate record of his case.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tags-row"><span class="tag doc">Documented</span></div>
+          <h3>International Justice Alliance, Inc.</h3>
+          <p class="role">A Texas nonprofit that champions his release.</p>
+          <ul>
+            <li>Features Anand Jon as a "case of interest," arguing for relief under California's Racial Justice Act, in its own words.</li>
+            <li>Incorporated in Texas in 2020 (SOS file 0803874927). The Texas Comptroller's public report lists its directors.</li>
+            <li>Also lists genuine exonerees among its causes.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tags-row"><span class="tag doc">Documented</span></div>
+          <h3>thebfly.co</h3>
+          <p class="role">A self-described "girl empowerment" website. Registered as THEBFLY.CO LLC in Nevada (2024).</p>
+          <ul>
+            <li>Its About page presents Anand Jon as a consultant who "teaches us how to build a brand and stay safe in the industry."</li>
+            <li>Lists International Justice Alliance and "Lucky Patino" among its collaborators.</li>
+            <li>Its privacy policy states it collects users' names, dates of birth, home addresses, and social profiles, with no parental-consent mechanism shown.</li>
+            <li>Lists a Beverly Hills virtual-office address; found registered in Nevada, not California.</li>
+          </ul>
+          <div class="note-inv"><strong>Under investigation:</strong> the site's FAQ also names public officials and figures as "collaborators." Those individuals' actual involvement is unverified; being listed is not evidence of any relationship, and requests for comment are pending. Separately, a page on the site was reported by this project to the NCMEC CyberTipline; its contents are not reproduced here.</div>
+        </article>
+
+        <article class="card">
+          <div class="tags-row"><span class="tag doc">Documented</span></div>
+          <h3>Elyana Aronow ("Elyana Violet")</h3>
+          <p class="role">Manager of THEBFLY.CO LLC; a public figure connecting several nodes.</p>
+          <ul>
+            <li>Named as manager of the LLC in the Nevada business filing.</li>
+            <li>Describes herself publicly as a "Partner in TheBFly.co" and a "Youth brand ambassador of International Justice Alliance."</li>
+            <li>Featured on International Justice Alliance's own website.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tags-row"><span class="tag doc">Documented</span> <span class="tag all">See note</span></div>
+          <h3>Gustavo Gonzalez ("Lucky Patino")</h3>
+          <p class="role">A director of International Justice Alliance.</p>
+          <ul>
+            <li>Listed as an IJA director in the Texas Comptroller's public report.</li>
+            <li>Registered agent of Lucky Patino Transportation LLC (federal USDOT record).</li>
+            <li>Listed among thebfly.co's collaborators.</li>
+            <li>A Tulare County jury convicted him of felony kidnapping in 2012 (case VCF242391A).</li>
+          </ul>
+          <div class="note-inv"><strong>Under investigation:</strong> the outcome of appeals filed in that kidnapping case is being confirmed. Additional older matters listed in a commercial background report are unconfirmed pending certified court records and are not stated here as fact.</div>
+        </article>
+
+        <article class="card">
+          <div class="tags-row"><span class="tag all">Under investigation</span></div>
+          <h3>Rajish Jose</h3>
+          <p class="role">Registered agent and a director of International Justice Alliance.</p>
+          <ul>
+            <li>Named as IJA's registered agent and a director in the Texas record.</li>
+          </ul>
+          <div class="note-inv"><strong>Under investigation:</strong> reported to also serve as Anand Jon's attorney. Being confirmed through court filings and the State Bar before it is stated as fact.</div>
+        </article>
+
+        <article class="card">
+          <div class="tags-row"><span class="tag all">Under investigation</span></div>
+          <h3>Davis Vanguard / "Everyday Injustice"</h3>
+          <p class="role">A criminal-justice news nonprofit and its podcast.</p>
+          <ul>
+            <li>Its "Everyday Injustice" podcast has framed Anand Jon's case as a wrongful conviction.</li>
+            <li>Its director appears among names thebfly.co lists.</li>
+          </ul>
+          <div class="note-inv"><strong>Under investigation:</strong> the nature and extent of any relationship with thebfly.co is being confirmed; a request for comment is pending.</div>
+        </article>
+
+      </div>
+
+      <h3>How they connect</h3>
+      <div class="map">
+        <div class="rel">
+          <div><b>Anand Jon</b> is championed for release by <b>International Justice Alliance</b>, which features his case on its own website.</div>
+          <div><b>International Justice Alliance</b> lists <b>Gustavo Gonzalez</b>, <b>Rajish Jose</b>, and Timothy Milner as its directors (Texas record).</div>
+          <div><b>thebfly.co</b> presents <b>Anand Jon</b> as a mentor, and lists <b>International Justice Alliance</b> and <b>Lucky Patino</b> (Gonzalez) as collaborators.</div>
+          <div><b>Elyana Aronow</b> manages <b>thebfly.co</b>'s LLC and is, by her own description, a partner in thebfly.co and an ambassador for International Justice Alliance.</div>
+          <div>Elyana Aronow's own public profile also links to <b>Sanjana Jon</b> (Anand's sister) and the <b>Davis Vanguard</b> world, tying the campaign, the nonprofit, and the website together through named people.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="alliances">
+    <div class="wrap">
+      <h2>The alliances: one core, many banners</h2>
+      <p class="section-sub">The effort to free Anand Jon does not run through a single organization. It runs through a cluster of similarly named nonprofits, an awards forum, a media outlet, and a youth-facing brand, staffed by the same small group of people. Each one presents him as a cause.</p>
+
+      <div class="callout">
+        <p style="margin:0;"><span class="tag doc">Documented</span> &nbsp;<strong>A charity the IRS delisted, still asking for money.</strong> American Justice Alliance (EIN 82-3588588, Stockton, California) had its 501(c)(3) status automatically revoked by the IRS on May 15, 2020 for failing to file Form 990 returns for three consecutive years. The IRS record shows no reinstatement. Its website nonetheless still states, "We are a 501(c)(3) nonprofit organization, approved by the IRS ... as a tax-exempt, charitable organization," and carries a "Donate Here Now" button.</p>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="tags-row"><span class="tag doc">Documented</span></div>
+          <h3>American Justice Alliance</h3>
+          <p class="role">The oldest entity in the cluster. A California nonprofit (Stockton).</p>
+          <ul>
+            <li>Features Anand Jon as a cause, alongside genuine exonerees.</li>
+            <li>IRS 501(c)(3) status auto-revoked May 15, 2020; no reinstatement on the federal record.</li>
+            <li>Its website still claims IRS-approved 501(c)(3) status and solicits donations.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tags-row"><span class="tag doc">Documented</span></div>
+          <h3>International Justice Alliance</h3>
+          <p class="role">Texas nonprofit, incorporated December 22, 2020, about four months after American Justice Alliance's revocation was posted.</p>
+          <ul>
+            <li>Champions Anand Jon on its own website.</li>
+            <li>Directors, per the Texas Comptroller: Gustavo Gonzalez, Rajish Jose, Timothy Milner.</li>
+            <li>Shares its core roster with American Justice Alliance.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tags-row"><span class="tag doc">Documented</span></div>
+          <h3>International Innovators / "Global Changemakers"</h3>
+          <p class="role">An awards and "documentary series" forum.</p>
+          <ul>
+            <li>Features Anand Jon's artwork in "Reform-A-Nation" campaign materials.</li>
+            <li>Event photos include Elyana Violet, Sanjana Jon, and David Greenwald.</li>
+            <li>Links to thebfly.co and references American Justice Alliance and the Davis Vanguard.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tags-row"><span class="tag doc">Documented</span> <span class="tag all">See note</span></div>
+          <h3>Davis Vanguard / "Everyday Injustice"</h3>
+          <p class="role">A criminal-justice news nonprofit and podcast (David Greenwald).</p>
+          <ul>
+            <li>Its "Everyday Injustice" podcast has framed Anand Jon's case as a wrongful conviction.</li>
+            <li>Promotes the International Innovators Awards; Greenwald appears on the alliance rosters.</li>
+          </ul>
+          <div class="note-inv"><strong>Under investigation:</strong> the extent of any formal relationship with thebfly.co is being confirmed; a request for comment is pending.</div>
+        </article>
+
+        <article class="card">
+          <div class="tags-row"><span class="tag doc">Documented</span></div>
+          <h3>Reform-A-Nation</h3>
+          <p class="role">A campaign brand within the cluster.</p>
+          <ul>
+            <li>Surfaces on the International Innovators site alongside Anand Jon's artwork.</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <h3>The recurring core</h3>
+      <p>The same names run across these entities. That overlap is what ties the cluster together.</p>
+      <div class="map">
+        <div class="rel">
+          <div><b>Rajish Jose</b>, a Texas criminal-defense attorney, is International Justice Alliance's registered agent and a director, and sits on American Justice Alliance's board and legal committee.</div>
+          <div><b>Timothy Milner</b> is a director of International Justice Alliance and sits on American Justice Alliance's board and legal committee.</div>
+          <div><b>Bart Fisher, Abraham Samuel, Steven DiLorenzo, Moishe Mana,</b> and <b>Jessie Thomas</b> appear on both American Justice Alliance and International Justice Alliance.</div>
+          <div><b>David Greenwald</b> of the Davis Vanguard appears across the alliances and the awards forum.</div>
+          <div><b>Gustavo "Lucky Patino" Gonzalez</b> and <b>Elyana Aronow</b> connect the alliances to thebfly.co.</div>
+          <div><b>Sanjana Jon</b>, Anand Jon's sister, sits on American Justice Alliance's advisory board.</div>
+        </div>
+      </div>
+
+      <div class="fair">
+        <h3 style="margin-top:0;">A fairness note</h3>
+        <p style="margin-bottom:0;">These alliances also feature genuinely innocent exonerees and legitimate advocates, among them Obie Anthony, Jeffrey Deskovic, and Brian Banks. They are not implicated by appearing here. The documented point is narrower: a convicted sex offender's release cause has been placed inside a network of otherwise-legitimate justice advocacy, run by a shared core of people. Separately, several prominent public figures appear in these groups' materials; being listed is not evidence of endorsement, and none are characterized here as supporting his release.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ongoing">
+    <div class="wrap">
+      <h2>How it continues from behind bars</h2>
+      <p class="section-sub">The through-line of this story is that the pressure on his victims did not stop at his conviction. It moved to other people.</p>
+      <p><span class="tag doc">Documented</span> In November 2009, an accuser who went public as "Autumn A" described what happened after Jon was imprisoned. His supporters, she said, found her on Facebook and approached her friends, offering a reward of one hundred thousand dollars for information that could help exonerate him. "The day I saw the page on Facebook, my heart dropped," she said. Her account helped prompt California legislators to pursue a law addressing technology-enabled intimidation of victims.</p>
+      <p>Fifteen years later, the same pattern, pressure and outreach conducted through supporters rather than by the imprisoned man himself, is the reason this site exists: to document who is doing that work, and in whose name.</p>
+    </div>
+  </section>
+
+  <section id="method">
+    <div class="wrap">
+      <h2>Standards, fairness, and corrections</h2>
+      <p class="section-sub">How this record is built and maintained.</p>
+
+      <h3>Evidence standard</h3>
+      <p>Items marked <span class="tag doc">Documented</span> are drawn from court records, government filings, or the subjects' own published statements. Items marked <span class="tag all">Under investigation</span> are attributed allegations or leads that have not been confirmed to a primary source; they are presented as allegations, never as established fact. Convictions cited here are matters of public record.</p>
+
+      <div class="fair">
+        <h3 style="margin-top:0;">The subjects' position</h3>
+        <p style="margin-bottom:0;">Anand Jon Alexander maintains that he is innocent and has pursued appeals. International Justice Alliance states that it works on behalf of the wrongfully convicted, and it lists genuine exonerees among its causes. Individuals and organizations named here are invited to respond; requests for comment are outstanding, and responses will be published as they are received.</p>
+      </div>
+
+      <h3>Corrections</h3>
+      <p>This is a living record and will be corrected promptly where shown to be wrong. To report an error, request a correction, or respond to anything published here, contact <a href="mailto:localtip@proton.me">localtip@proton.me</a>. If you are a survivor or a witness, you may reach out confidentially at the same address.</p>
+
+      <div class="callout">
+        <p style="margin:0;">Nothing on this site is legal advice, and nothing here should be read as accusing any person of a crime for which they have not been convicted. Where allegations are described, they are labeled as such.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>The Anand Jon Record</strong>, a public-interest reference compiling the publicly available record on the crimes and convictions of Anand Jon Alexander and the documented network seeking his release. Built and maintained independently.</p>
+    <p>Sources are linked throughout and drawn from court records, government business filings, contemporaneous news reporting, and the subjects' own public websites. Last updated: <span id="updated"></span>.</p>
+    <p style="margin-top:20px;"><a class="backtop" href="#top">↑ Back to top</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var KEY = 'ajr-theme';
+    try{ var saved = localStorage.getItem(KEY); if(saved){ root.setAttribute('data-theme', saved); } }catch(e){}
+    var btn = document.getElementById('themeBtn');
+    btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try{ localStorage.setItem(KEY, next); }catch(e){}
+    });
+    var d = new Date();
+    var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    document.getElementById('updated').textContent = months[d.getMonth()] + ' ' + d.getFullYear();
+  })();
+</script>
+</body>
+</html>

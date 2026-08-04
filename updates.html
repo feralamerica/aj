@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Updates, The Anand Jon Record</title>
+<meta name="description" content="A running log of what has been added to The Anand Jon Record, and when, as new documents are verified." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0F1216; --surface:#171B21; --surface2:#1E242C; --line:#2A313A;
+    --text:#F3F5F8; --muted:#B9C2CE; --accent:#E5484D; --accent-soft:#3a1416;
+    --doc:#3FB950; --doc-bg:#0f2417; --alleged:#E3B341; --alleged-bg:#2a2410;
+    --focus:#7CC7FF; --maxw:1080px; --radius:14px;
+  }
+  html[data-theme="light"]{
+    --bg:#FFFFFF; --surface:#F5F6F8; --surface2:#ECEFF3; --line:#D8DEE6;
+    --text:#12161C; --muted:#47535F; --accent:#C1121F; --accent-soft:#fbe9ea;
+    --doc:#1a7f37; --doc-bg:#e7f4ec; --alleged:#8a6100; --alleged-bg:#f7efd8;
+    --focus:#0B62C4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:112px;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-weight:400; line-height:1.65; font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--text); text-underline-offset:3px; text-decoration-thickness:1px;}
+  a:hover{color:var(--accent);}
+  :focus-visible{outline:3px solid var(--focus); outline-offset:2px; border-radius:4px;}
+  .skip{position:absolute; left:-999px; top:0; background:var(--accent); color:#fff; padding:.6rem 1rem; z-index:100; border-radius:0 0 8px 0;}
+  .skip:focus{left:0;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+  header.site{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; gap:14px; justify-content:space-between; padding:10px 20px; max-width:var(--maxw); margin:0 auto;}
+  .brand{font-weight:700; letter-spacing:.02em; font-size:1.02rem; display:flex; align-items:center; gap:10px; white-space:nowrap; text-decoration:none; color:var(--text);}
+  .brand .dot{width:11px; height:11px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft); flex:0 0 auto;}
+  .navlinks{display:flex; gap:4px; flex-wrap:wrap; align-items:center;}
+  .navlinks a{font-size:.85rem; color:var(--muted); text-decoration:none; padding:6px 10px; border-radius:8px; font-weight:500; white-space:nowrap;}
+  .navlinks a:hover{color:var(--text); background:var(--surface2);}
+  .navlinks a.active{color:var(--text); background:var(--surface2);}
+  .toggle{background:var(--surface2); color:var(--text); border:1px solid var(--line); border-radius:8px; padding:7px 11px; font-family:inherit; font-size:.8rem; font-weight:500; cursor:pointer; display:flex; align-items:center; gap:6px; flex:0 0 auto;}
+  .toggle:hover{border-color:var(--accent);}
+  .hero{padding:56px 0 34px; border-bottom:1px solid var(--line); background:radial-gradient(1200px 400px at 70% -10%, var(--accent-soft), transparent 70%);}
+  .kicker{color:var(--accent); font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:.74rem; margin:0 0 14px;}
+  h1{font-size:clamp(1.9rem,5vw,2.8rem); line-height:1.1; font-weight:700; margin:0 0 16px; letter-spacing:-.01em;}
+  .lede{font-size:1.1rem; color:var(--muted); max-width:70ch; margin:0;}
+  main section{padding:44px 0;}
+  .backlink{display:inline-block; margin:0 0 20px; font-size:.9rem; font-weight:500; color:var(--muted); text-decoration:none;}
+  .backlink:hover{color:var(--accent);}
+  .updatelog{margin-top:8px; display:grid; gap:14px;}
+  .update{background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:12px; padding:16px 18px;}
+  .update .u-date{font-weight:600; color:var(--accent); font-size:.82rem; letter-spacing:.03em; text-transform:uppercase;}
+  .update p{margin:6px 0 0; font-size:.97rem; max-width:78ch;}
+  .update a{font-weight:500;}
+  footer{padding:34px 0 60px; border-top:1px solid var(--line);}
+  footer p{color:var(--muted); font-size:.88rem; max-width:80ch;}
+  @media (max-width:720px){
+    .nav{flex-wrap:wrap; gap:10px;}
+    .navlinks{order:3; width:100%; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:2px; gap:2px;}
+    .navlinks::-webkit-scrollbar{height:0;}
+    body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span> The Anand Jon Record</a>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="index.html#crimes">The Crimes</a>
+      <a href="index.html#victims">Predator &amp; Prey</a>
+      <a href="index.html#records">Court Records</a>
+      <a href="index.html#coverage">Coverage</a>
+      <a href="index.html#sources">Sources</a>
+      <a href="index.html#network">The Network</a>
+      <a href="index.html#alliances">The Alliances</a>
+      <a href="index.html#ongoing">From Prison</a>
+      <a href="updates.html" class="active" aria-current="page">Updates</a>
+      <a href="index.html#method">Standards</a>
+    </nav>
+    <button class="toggle" id="themeBtn" aria-label="Switch color theme">◐ Theme</button>
+  </div>
+</header>
+<div class="hero">
+  <div class="wrap">
+    <p class="kicker">A living record</p>
+    <h1>Updates</h1>
+    <p class="lede">A running log of what has been added to The Anand Jon Record, and when. Newest first. As new documents are verified, they are noted here.</p>
+  </div>
+</div>
+<main id="main">
+  <section>
+    <div class="wrap">
+      <a class="backlink" href="index.html">&#8592; Back to the record</a>
+      <div class="updatelog">
+        <div class="update"><div class="u-date">August 2026</div><p>Added confirmation from two state registries: California's Megan's Law registry lists Anand Jon Alexander as a registered sex offender with a status of incarcerated, and New York's registry lists him as a Level 3 (high-risk) Sexually Violent Offender. Both are linked under <a href="index.html#crimes">The Crimes</a> and in <a href="index.html#sources">Sources</a>.</p></div>
+        <div class="update"><div class="u-date">August 2026</div><p>Added <a href="index.html#alliances">The Alliances</a>, documenting the cluster of nonprofits and brands promoting his release, including the IRS record showing American Justice Alliance's 501(c)(3) status was auto-revoked in 2020 while its website still solicits donations.</p></div>
+        <div class="update"><div class="u-date">August 2026</div><p>Confirmed through the Texas Comptroller that Gustavo Gonzalez ("Lucky Patino") is a director of International Justice Alliance, and identified Elyana Aronow ("Elyana Violet") as the manager of THEBFLY.CO LLC. See <a href="index.html#network">The Network</a>.</p></div>
+        <div class="update"><div class="u-date">August 2026</div><p>Added the <a href="index.html#sources">Primary sources and filings</a> hub, gathering every official record behind this site in one place.</p></div>
+        <div class="update"><div class="u-date">Launch</div><p>The Anand Jon Record went live, documenting his convictions, the network seeking his release, and the pattern of post-conviction pressure on his victims.</p></div>
+      </div>
+      <!-- TO ADD A NEW UPDATE: copy one block, put it at the TOP of the list above, and fill in the date and text.
+        <div class="update"><div class="u-date">DATE HERE</div><p>What was added, and why it matters. Link to a section, for example <a href="index.html#network">The Network</a>.</p></div>
+      -->
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <p><a href="index.html">The Anand Jon Record</a>, a public-interest reference compiling the publicly available record on the crimes and convictions of Anand Jon Alexander and the documented network seeking his release.</p>
+  </div>
+</footer>
+<script>
+  (function(){
+    var root = document.documentElement;
+    var KEY = 'ajr-theme';
+    try{ var saved = localStorage.getItem(KEY); if(saved){ root.setAttribute('data-theme', saved); } }catch(e){}
+    document.getElementById('themeBtn').addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try{ localStorage.setItem(KEY, next); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>

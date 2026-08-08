@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Survivors, The Anand Jon Record</title>
+<meta name="description" content="Anand Jon Alexander is eligible for parole in 2027. If you were approached by him or on his behalf between 2009 and 2026, here is how to be notified, be heard, and know your rights." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0F1216; --surface:#171B21; --surface2:#1E242C; --line:#2A313A;
+    --text:#F3F5F8; --muted:#B9C2CE; --accent:#E5484D; --accent-soft:#3a1416;
+    --doc:#3FB950; --doc-bg:#0f2417; --alleged:#E3B341; --alleged-bg:#2a2410;
+    --focus:#7CC7FF; --maxw:1080px; --radius:14px;
+  }
+  html[data-theme="light"]{
+    --bg:#FFFFFF; --surface:#F5F6F8; --surface2:#ECEFF3; --line:#D8DEE6;
+    --text:#12161C; --muted:#47535F; --accent:#C1121F; --accent-soft:#fbe9ea;
+    --doc:#1a7f37; --doc-bg:#e7f4ec; --alleged:#8a6100; --alleged-bg:#f7efd8;
+    --focus:#0B62C4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:112px;}
+  body{margin:0; background:var(--bg); color:var(--text);
+    font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-weight:400; line-height:1.65; font-size:17px; -webkit-font-smoothing:antialiased;}
+  a{color:var(--text); text-underline-offset:3px; text-decoration-thickness:1px;}
+  a:hover{color:var(--accent);}
+  :focus-visible{outline:3px solid var(--focus); outline-offset:2px; border-radius:4px;}
+  .skip{position:absolute; left:-999px; top:0; background:var(--accent); color:#fff; padding:.6rem 1rem; z-index:100; border-radius:0 0 8px 0;}
+  .skip:focus{left:0;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+  header.site{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; gap:14px; justify-content:space-between; padding:10px 20px; max-width:var(--maxw); margin:0 auto;}
+  .brand{font-weight:700; letter-spacing:.02em; font-size:1.02rem; display:flex; align-items:center; gap:10px; white-space:nowrap; text-decoration:none; color:var(--text);}
+  .brand .dot{width:11px; height:11px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft); flex:0 0 auto;}
+  .navlinks{display:flex; gap:4px; flex-wrap:wrap; align-items:center;}
+  .navlinks a{font-size:.85rem; color:var(--muted); text-decoration:none; padding:6px 10px; border-radius:8px; font-weight:500; white-space:nowrap;}
+  .navlinks a:hover{color:var(--text); background:var(--surface2);}
+  .navlinks a.active{color:var(--text); background:var(--surface2);}
+  .navlinks a.cta{color:#fff; background:var(--accent); font-weight:600;}
+  .navlinks a.cta:hover{color:#fff; filter:brightness(1.08);}
+  .toggle{background:var(--surface2); color:var(--text); border:1px solid var(--line); border-radius:8px; padding:7px 11px; font-family:inherit; font-size:.8rem; font-weight:500; cursor:pointer; flex:0 0 auto;}
+  .toggle:hover{border-color:var(--accent);}
+  .hero{padding:52px 0 30px; border-bottom:1px solid var(--line); background:radial-gradient(1200px 400px at 70% -10%, var(--accent-soft), transparent 70%);}
+  .kicker{color:var(--accent); font-weight:700; letter-spacing:.13em; text-transform:uppercase; font-size:.74rem; margin:0 0 14px;}
+  h1{font-size:clamp(1.7rem,4.4vw,2.5rem); line-height:1.14; font-weight:700; margin:0 0 16px; letter-spacing:-.01em;}
+  .lede{font-size:1.1rem; color:var(--muted); max-width:72ch; margin:0;}
+  main section{padding:34px 0;}
+  h2{font-size:1.5rem; font-weight:700; margin:0 0 12px; letter-spacing:-.01em;}
+  p{max-width:74ch;}
+  .backlink{display:inline-block; margin:0 0 18px; font-size:.9rem; font-weight:500; color:var(--muted); text-decoration:none;}
+  .backlink:hover{color:var(--accent);}
+  figure.evidence{margin:6px 0 8px; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--surface);}
+  figure.evidence img{display:block; width:100%; height:auto;}
+  figure.evidence figcaption{padding:10px 13px; font-size:.8rem; color:var(--muted); border-top:1px solid var(--line); line-height:1.5;}
+  .callout{background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:12px; padding:18px 20px; margin:18px 0;}
+  .callout h3{margin:0 0 10px; font-size:1.05rem; font-weight:600;}
+  .callout ul{margin:0; padding-left:1.1rem;}
+  .callout li{margin:6px 0;}
+  .deadline{background:var(--alleged-bg); border:1px solid var(--alleged); border-radius:10px; padding:12px 15px; margin:16px 0; font-size:.96rem;}
+  .deadline strong{color:var(--text);}
+  .btn{display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; font-size:.95rem; padding:12px 20px; border-radius:10px; margin-top:6px;}
+  .btn:hover{filter:brightness(1.08); color:#fff;}
+  .reslist{margin:8px 0 0; padding-left:1.1rem; color:var(--muted); font-size:.92rem;}
+  .reslist li{margin:6px 0;}
+  footer{padding:30px 0 60px; border-top:1px solid var(--line); margin-top:20px;}
+  footer p{color:var(--muted); font-size:.88rem;}
+  @media (max-width:720px){
+    .nav{flex-wrap:wrap; gap:10px;}
+    .navlinks{order:3; width:100%; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:2px; gap:2px;}
+    .navlinks::-webkit-scrollbar{height:0;}
+    body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span> The Anand Jon Record</a>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="survivors.html" class="cta active" aria-current="page">For Survivors</a>
+      <a href="index.html#crimes">The Crimes</a>
+      <a href="index.html#records">Court Records</a>
+      <a href="index.html#network">The Network</a>
+      <a href="index.html#ongoing">From Prison</a>
+      <a href="updates.html">Updates</a>
+    </nav>
+    <button class="toggle" id="themeBtn" aria-label="Switch color theme">◐ Theme</button>
+  </div>
+</header>
+<div class="hero">
+  <div class="wrap">
+    <p class="kicker">For survivors and witnesses</p>
+    <h1>Have you been approached online or by phone by Anand Jon Alexander between 2009 and 2026?</h1>
+    <p class="lede">Whether it was him directly or someone reaching out on his behalf, please read this. You are not imagining it, you are not alone, and you have rights and options that most people are never told about.</p>
+  </div>
+</div>
+<main id="main">
+  <section>
+    <div class="wrap">
+      <a class="backlink" href="index.html">&#8592; Back to the record</a>
+      <p>Anand Jon Alexander is the fashion designer convicted in Los Angeles of multiple sexual assaults against young women and girls, several of them teenagers who believed he could make them models. He has been in California state custody since 2009 and is currently held at San Quentin. His CDCR number, which is public, is AB1337.</p>
+      <p>Here is the part almost nobody knows, and the reason this page exists now.</p>
+
+      <h2>He is up for parole in 2027</h2>
+      <figure class="evidence">
+        <img src="cdcr-parole-record.png" alt="California CDCR incarcerated record for Anand Jon Alexander, CDCR number AB1337, at San Quentin State Prison, Los Angeles commitment, showing a parole eligible date of June 2027 and a tentative parole suitability hearing in December 2027, with a consultation conducted January 31, 2023." />
+        <figcaption>Source: California CDCR, Incarcerated Records and Information Search (CIRIS), record AB1337. Parole eligible June 2027; suitability hearing tentatively December 2027.</figcaption>
+      </figure>
+      <p>According to California's own inmate records system, Anand Jon is eligible for parole in June 2027 under the state's Elderly Parole Program, and a parole suitability hearing is tentatively set for December 2027. A required pre-hearing consultation was already conducted in January 2023.</p>
+      <p>Elderly parole does not mean automatic release. It means a panel will hold a hearing to decide whether he should be let out, and by law that panel has to give special consideration to his age and years served. In other words, the clock is running, and there is an organized effort working to walk him through that hearing. What the panel hears from the people he harmed can matter enormously.</p>
+
+      <h2>You have the right to be notified and to be heard</h2>
+      <p>Under California's victims' rights law, if you are a victim or survivor in this case you have the right to be told when his parole hearing is happening, to attend it, to speak at it, to send someone to speak for you, or to submit a written statement the panel will read. You also have the right to be notified if he is ever released.</p>
+      <p>None of this happens automatically. You have to get on the list, and it is free.</p>
+      <div class="callout">
+        <h3>How to register with CDCR's Office of Victim and Survivor Rights and Services</h3>
+        <ul>
+          <li>Phone: <a href="tel:18772566877">1-877-256-6877</a></li>
+          <li>Email: <a href="mailto:victimservices@cdcr.ca.gov">victimservices@cdcr.ca.gov</a></li>
+          <li>Or ask them for the "Request for Victim Services" form (CDCR 1707)</li>
+        </ul>
+      </div>
+      <p>Do this as early as you can. Hearing dates move, and you only find out about the new date if you are already registered.</p>
+      <div class="deadline">
+        <strong>One deadline to know.</strong> To request to attend and speak, you generally need to ask at least 15 days before the hearing. Miss that window and you may lose the chance to attend, though a written statement may still be accepted. Written statements can go to <a href="mailto:victimservices@cdcr.ca.gov">victimservices@cdcr.ca.gov</a> or to the Board of Parole Hearings correspondence unit at <a href="mailto:BPH.CorrespondenceUnit@cdcr.ca.gov">BPH.CorrespondenceUnit@cdcr.ca.gov</a>. If cost is a barrier to attending in person, ask OVSRS about travel reimbursement.
+      </div>
+      <p>You do not have to face the room to be heard. A letter counts. A recorded statement counts. A stand-in counts.</p>
+
+      <h2>If he, or someone acting for him, is contacting you now</h2>
+      <p>Survivors in this case have reported being contacted while he has been incarcerated, sometimes through other people acting on his behalf. If that is happening to you, a few things are worth knowing.</p>
+      <p><strong>Save everything.</strong> Screenshots, phone numbers, usernames, dates, and the names of anyone who reached out for him. Do not delete the messages, even if your instinct is to make them disappear. That record is evidence.</p>
+      <p><strong>You do not owe him a response,</strong> and you do not have to engage. Contact like this, especially anything that feels like pressure, monitoring, or a request to change or soften your account, can be a serious matter on its own, and it is directly relevant to whether he is safe to release.</p>
+      <p><strong>You can report it.</strong> To the prison, through OVSRS at the number above. To your local police if you feel unsafe. And to the Los Angeles County District Attorney's Office, which prosecuted the original case. Reporting it also builds the record a parole panel should see. If you are ever in immediate danger, call 911.</p>
+
+      <h2>If you want to tell your story</h2>
+      <p>This site is part of an ongoing investigation into that pattern. If you were approached by Anand Jon or by anyone on his behalf, at any point from 2009 to now, we would like to hear from you, on whatever terms feel safe.</p>
+      <p>You can write to <a href="mailto:localtip@proton.me">localtip@proton.me</a>. Proton is an encrypted email service, so if you want an extra layer of privacy you can make a free Proton account and write from that. Tell us as much or as little as you want. We will not publish your name or anything that identifies you without your explicit permission. You are in control of what happens with what you share.</p>
+      <p>Talking to a journalist is not the same as exercising your official rights, and it is not a substitute for registering with OVSRS or reporting to law enforcement. Please do those things too. But if you want your experience on the record, and handled with care, the door is open.</p>
+      <p><a class="btn" href="mailto:localtip@proton.me">Share your account securely</a></p>
+
+      <h2>You are not the only one</h2>
+      <p>If reading this stirred something up, that is normal, and it is okay to take a breath. Reach out to someone you trust. If you want to talk to a trained advocate confidentially, the free, 24/7 RAINN National Sexual Assault Hotline is <a href="tel:18006564673">1-800-656-4673</a>, and there is a chat option at <a href="https://online.rainn.org" rel="noopener">online.rainn.org</a>.</p>
+      <p>What happened to you was not your fault. What you do next is your choice, and every one of those choices is legitimate, including simply getting on the notification list so no one can move him without you knowing.</p>
+
+      <h2>Official resources</h2>
+      <ul class="reslist">
+        <li>CDCR Office of Victim and Survivor Rights and Services: <a href="https://www.cdcr.ca.gov/victim-services/" rel="noopener">cdcr.ca.gov/victim-services</a></li>
+        <li>CDCR parole hearing information for victims: <a href="https://www.cdcr.ca.gov/victim-services/parole-hearing-info/" rel="noopener">cdcr.ca.gov/victim-services/parole-hearing-info</a></li>
+        <li>California Elderly Parole Program overview: <a href="https://cdcr.ca.gov/bph/elderly-parole-hearings-overview/" rel="noopener">cdcr.ca.gov/bph/elderly-parole-hearings-overview</a></li>
+        <li>Inmate record (CIRIS), CDCR AB1337: <a href="https://ciris.mt.cdcr.ca.gov/" rel="noopener">ciris.mt.cdcr.ca.gov</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <p><a href="index.html">The Anand Jon Record</a>, a public-interest reference compiling the publicly available record on the crimes and convictions of Anand Jon Alexander and the documented network seeking his release.</p>
+  </div>
+</footer>
+<script>
+  (function(){
+    var root = document.documentElement;
+    var KEY = 'ajr-theme';
+    try{ var saved = localStorage.getItem(KEY); if(saved){ root.setAttribute('data-theme', saved); } }catch(e){}
+    document.getElementById('themeBtn').addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try{ localStorage.setItem(KEY, next); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build your parole statement, The Anand Jon Record</title>
+<meta name="description" content="A private, in-browser tool to write and download your statement to the California Board of Parole Hearings opposing the release of Anand Jon Alexander. Nothing you type leaves your device." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0F1216; --surface:#171B21; --surface2:#1E242C; --line:#2A313A;
+    --text:#F3F5F8; --muted:#B9C2CE; --accent:#E5484D; --accent-soft:#3a1416;
+    --doc:#3FB950; --focus:#7CC7FF; --maxw:1080px; --radius:14px;
+  }
+  html[data-theme="light"]{
+    --bg:#FFFFFF; --surface:#F5F6F8; --surface2:#ECEFF3; --line:#D8DEE6;
+    --text:#12161C; --muted:#47535F; --accent:#C1121F; --accent-soft:#fbe9ea;
+    --doc:#1a7f37; --focus:#0B62C4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:112px;}
+  body{margin:0; background:var(--bg); color:var(--text);
+    font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-weight:400; line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased;}
+  a{color:var(--text); text-underline-offset:3px;}
+  a:hover{color:var(--accent);}
+  :focus-visible{outline:3px solid var(--focus); outline-offset:2px; border-radius:4px;}
+  .skip{position:absolute; left:-999px; top:0; background:var(--accent); color:#fff; padding:.6rem 1rem; z-index:100; border-radius:0 0 8px 0;}
+  .skip:focus{left:0;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+  header.site{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; gap:14px; justify-content:space-between; padding:10px 20px; max-width:var(--maxw); margin:0 auto;}
+  .brand{font-weight:700; font-size:1.02rem; display:flex; align-items:center; gap:10px; white-space:nowrap; text-decoration:none; color:var(--text);}
+  .brand .dot{width:11px; height:11px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);}
+  .navlinks{display:flex; gap:4px; flex-wrap:wrap; align-items:center;}
+  .navlinks a{font-size:.85rem; color:var(--muted); text-decoration:none; padding:6px 10px; border-radius:8px; font-weight:500; white-space:nowrap;}
+  .navlinks a:hover{color:var(--text); background:var(--surface2);}
+  .navlinks a.cta{color:#fff; background:var(--accent); font-weight:600;}
+  .toggle{background:var(--surface2); color:var(--text); border:1px solid var(--line); border-radius:8px; padding:7px 11px; font-family:inherit; font-size:.8rem; font-weight:500; cursor:pointer;}
+  .toggle:hover{border-color:var(--accent);}
+  .hero{padding:46px 0 26px; border-bottom:1px solid var(--line); background:radial-gradient(1200px 400px at 70% -10%, var(--accent-soft), transparent 70%);}
+  .kicker{color:var(--accent); font-weight:700; letter-spacing:.13em; text-transform:uppercase; font-size:.72rem; margin:0 0 12px;}
+  h1{font-size:clamp(1.6rem,4vw,2.3rem); line-height:1.15; font-weight:700; margin:0 0 14px;}
+  .lede{font-size:1.05rem; color:var(--muted); max-width:70ch; margin:0;}
+  .backlink{display:inline-block; margin:22px 0 0; font-size:.9rem; font-weight:500; color:var(--muted); text-decoration:none;}
+  .backlink:hover{color:var(--accent);}
+  .privacy{background:var(--surface); border:1px solid var(--doc); border-left:3px solid var(--doc); border-radius:12px; padding:14px 16px; margin:24px 0 8px; font-size:.92rem; color:var(--muted);}
+  .privacy strong{color:var(--text);}
+  .layout{display:grid; grid-template-columns:1fr 1fr; gap:26px; padding:30px 0 10px; align-items:start;}
+  form{display:grid; gap:16px;}
+  fieldset{border:1px solid var(--line); border-radius:12px; padding:16px 16px 18px; margin:0;}
+  legend{padding:0 8px; font-weight:600; font-size:.95rem; color:var(--accent);}
+  .field{display:grid; gap:5px; margin-top:12px;}
+  .field:first-of-type{margin-top:4px;}
+  label{font-size:.9rem; font-weight:500;}
+  .hint{font-size:.8rem; color:var(--muted); margin:0;}
+  input[type=text], input[type=date], textarea{
+    width:100%; background:var(--bg); color:var(--text); border:1px solid var(--line);
+    border-radius:9px; padding:10px 12px; font-family:inherit; font-size:.95rem;}
+  input:focus, textarea:focus{border-color:var(--accent); outline:none;}
+  textarea{min-height:96px; resize:vertical; line-height:1.5;}
+  .check{display:flex; gap:10px; align-items:flex-start; margin-top:12px; font-size:.9rem;}
+  .check input{margin-top:3px; flex:0 0 auto; width:16px; height:16px; accent-color:var(--accent);}
+  .check label{font-weight:400; color:var(--muted);}
+  .actions{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:4px;}
+  .btn{display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; font-size:.95rem; padding:12px 20px; border-radius:10px; border:1px solid transparent; cursor:pointer; font-family:inherit;}
+  .btn:hover{filter:brightness(1.08);}
+  .btn:disabled{opacity:.5; cursor:not-allowed; filter:none;}
+  .btn.ghost{background:transparent; color:var(--text); border-color:var(--line);}
+  .btn.ghost:hover{border-color:var(--accent); color:var(--accent); filter:none;}
+  .warn{font-size:.85rem; color:var(--accent); min-height:1.2em;}
+  .preview-col{position:sticky; top:96px;}
+  .preview-head{display:flex; justify-content:space-between; align-items:center; margin:0 0 8px;}
+  .preview-head h2{font-size:1rem; margin:0; font-weight:600;}
+  .preview{background:#fff; color:#111; border:1px solid var(--line); border-radius:12px; padding:26px 28px; font-family:'Times New Roman', Georgia, serif; font-size:14px; line-height:1.5; white-space:pre-wrap; word-wrap:break-word; max-height:70vh; overflow:auto;}
+  footer{padding:30px 0 60px; border-top:1px solid var(--line); margin-top:26px;}
+  footer p{color:var(--muted); font-size:.86rem;}
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .preview-col{position:static;}
+    .nav{flex-wrap:wrap; gap:10px;}
+    .navlinks{order:3; width:100%; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; gap:2px;}
+    .navlinks::-webkit-scrollbar{height:0;}
+  }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#form">Skip to the form</a>
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span> The Anand Jon Record</a>
+    <nav class="navlinks" aria-label="Primary">
+      <a href="survivors.html" class="cta">For Survivors</a>
+      <a href="index.html#crimes">The Crimes</a>
+      <a href="index.html#network">The Network</a>
+      <a href="index.html#ongoing">From Prison</a>
+      <a href="updates.html">Updates</a>
+    </nav>
+    <button class="toggle" id="themeBtn" aria-label="Switch color theme">◐ Theme</button>
+  </div>
+</header>
+<div class="hero">
+  <div class="wrap">
+    <p class="kicker">For survivors and victims</p>
+    <h1>Build your statement to the parole board</h1>
+    <p class="lede">Fill in the fields below in your own words, and this tool will assemble a formal statement to the California Board of Parole Hearings opposing the release of Anand Jon Alexander. When you are ready, download it as a PDF to print, sign, and mail, or to attach in an email.</p>
+    <a class="backlink" href="survivors.html">&#8592; Back to the survivor guide</a>
+  </div>
+</div>
+<div class="wrap">
+  <div class="privacy">
+    <strong>Your privacy.</strong> This form runs entirely on your own device. Nothing you type is sent anywhere, saved to any server, or seen by anyone but you. The PDF is created in your browser. When you close this page, what you wrote is gone, so save or send your PDF before you leave.
+  </div>
+</div>
+<main class="wrap">
+  <div class="layout">
+    <form id="form" aria-label="Parole statement builder">
+      <fieldset>
+        <legend>About you</legend>
+        <div class="field">
+          <label for="f-name">Your full name</label>
+          <input type="text" id="f-name" autocomplete="off" placeholder="e.g., Jane Doe" />
+          <p class="hint">Signed statements carry more weight than anonymous ones, but you may use initials if you prefer.</p>
+        </div>
+        <div class="field">
+          <label for="f-contact">Your address or email (optional)</label>
+          <input type="text" id="f-contact" autocomplete="off" placeholder="Where the Board can reach you" />
+        </div>
+        <div class="check">
+          <input type="checkbox" id="f-private" checked />
+          <label for="f-private">Keep my contact information private. Print "Address on file with CDCR Victim Services" instead. (Recommended if you have registered with victim services.)</label>
+        </div>
+        <div class="field">
+          <label for="f-date">Date</label>
+          <input type="date" id="f-date" />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your statement</legend>
+        <div class="field">
+          <label for="f-connection">How you are connected to this case (optional)</label>
+          <input type="text" id="f-connection" autocomplete="off" placeholder='e.g., "I was 16 when I met him," or "I testified at his trial."' />
+        </div>
+        <div class="field">
+          <label for="f-impact">How has what he did affected your life?</label>
+          <textarea id="f-impact" placeholder="Write only what you are comfortable putting on paper. There is no wrong way to say this. This is the part the Board is required to consider."></textarea>
+          <p class="hint">This is the heart of your statement. A few honest sentences are enough.</p>
+        </div>
+        <div class="check">
+          <input type="checkbox" id="f-contacted" />
+          <label for="f-contacted">Since his conviction, he or someone acting for him has contacted me.</label>
+        </div>
+        <div class="field">
+          <label for="f-contact-details">If so, what happened? (optional)</label>
+          <textarea id="f-contact-details" placeholder="Briefly describe the contact. You can note that you have screenshots, dates, or names you can provide."></textarea>
+        </div>
+        <div class="field">
+          <label for="f-reason">Why you believe he should not be released (optional)</label>
+          <input type="text" id="f-reason" autocomplete="off" placeholder='Write a full sentence, e.g., "He targeted girls as young as fourteen and has shown no real accountability."' />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Requests to the Board</legend>
+        <div class="check">
+          <input type="checkbox" id="f-confidential" checked />
+          <label for="f-confidential">Ask the Board to keep my identity and contact information confidential, and not share them with him or his representatives.</label>
+        </div>
+        <div class="check">
+          <input type="checkbox" id="f-notify" checked />
+          <label for="f-notify">Ask to be notified of this hearing and any future hearing or release decision.</label>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="button" class="btn" id="downloadBtn">Download my statement (PDF)</button>
+        <button type="button" class="btn ghost" id="printBtn">Print instead</button>
+      </div>
+      <p class="warn" id="warn" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="preview-col">
+      <div class="preview-head">
+        <h2>Live preview</h2>
+        <span class="hint">Updates as you type</span>
+      </div>
+      <div class="preview" id="preview" aria-live="polite"></div>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <p>After you download it: mail to Board of Parole Hearings, P.O. Box 4036, Sacramento, CA 95812-4036, Attn: Pre-Hearing Correspondence, or email BPH.CorrespondenceUnit@cdcr.ca.gov and victimservices@cdcr.ca.gov. To attend or speak at the hearing, register with CDCR Victim Services at 1-877-256-6877 and make your request at least 15 days before the hearing. Full guidance is on the <a href="survivors.html">survivor page</a>.</p>
+  </div>
+</footer>
+
+<script src="jspdf.umd.min.js"></script>
+<script>
+  (function(){
+    var root = document.documentElement, KEY='ajr-theme';
+    try{ var s=localStorage.getItem(KEY); if(s){ root.setAttribute('data-theme', s); } }catch(e){}
+    document.getElementById('themeBtn').addEventListener('click', function(){
+      var n = root.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', n);
+      try{ localStorage.setItem(KEY, n); }catch(e){}
+    });
+  })();
+
+  var $ = function(id){ return document.getElementById(id); };
+  var boardBlock = [
+    "California Board of Parole Hearings",
+    "P.O. Box 4036",
+    "Sacramento, CA 95812-4036",
+    "Attn: Pre-Hearing Correspondence"
+  ];
+  var RE_LINE = "Re: Anand Jon Alexander, CDCR #AB1337, Parole Suitability Hearing, tentatively December 2027.";
+
+  function fmtDate(v){
+    if(!v) return "";
+    var parts = v.split("-");
+    if(parts.length!==3) return v;
+    var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    var y=parts[0], m=parseInt(parts[1],10), d=parseInt(parts[2],10);
+    if(!m||!d) return v;
+    return months[m-1] + " " + d + ", " + y;
+  }
+
+  // Build a structured document: array of blocks {kind, text}
+  // kind: 'line' (tight single line), 'para' (wrapped), 'reline' (bold wrapped), 'gap'
+  function buildDoc(){
+    var name = $("f-name").value.trim();
+    var priv = $("f-private").checked;
+    var contact = $("f-contact").value.trim();
+    var dateStr = fmtDate($("f-date").value);
+    var connection = $("f-connection").value.trim();
+    var impact = $("f-impact").value.trim();
+    var contacted = $("f-contacted").checked;
+    var details = $("f-contact-details").value.trim();
+    var reason = $("f-reason").value.trim();
+    var confid = $("f-confidential").checked;
+    var notify = $("f-notify").checked;
+
+    var senderContact = priv ? "Address on file with CDCR Victim Services" : contact;
+    var displayName = name || "[your name]";
+
+    var blocks = [];
+    blocks.push({kind:"line", text:displayName});
+    if(senderContact) blocks.push({kind:"line", text:senderContact});
+    if(dateStr) blocks.push({kind:"line", text:dateStr});
+    blocks.push({kind:"gap"});
+    boardBlock.forEach(function(l){ blocks.push({kind:"line", text:l}); });
+    blocks.push({kind:"gap"});
+    blocks.push({kind:"reline", text:RE_LINE});
+    blocks.push({kind:"gap"});
+    blocks.push({kind:"para", text:"Dear Members of the Board:"});
+    blocks.push({kind:"para", text:"My name is " + displayName + ", and I am a victim in this case. I am writing to ask you to deny parole to Anand Jon Alexander and to find him unsuitable for release."});
+    if(connection) blocks.push({kind:"para", text:connection});
+    blocks.push({kind:"para", text: impact || "[Describe, in your own words, how what he did has affected your life.]"});
+    if(contacted){
+      var c = "Since his conviction, I have been contacted by him or by people acting on his behalf.";
+      if(details) c += " " + details;
+      blocks.push({kind:"para", text:c});
+    }
+    var r = "I do not believe Anand Jon Alexander is safe to release.";
+    if(reason){
+      var rs = reason.charAt(0).toUpperCase() + reason.slice(1);
+      if(!/[.!?]$/.test(rs)) rs += ".";
+      r += " " + rs;
+    }
+    r += " I am asking the Board to keep him in prison.";
+    blocks.push({kind:"para", text:r});
+    if(confid) blocks.push({kind:"para", text:"I respectfully request that my identity and contact information be kept confidential and not shared with the incarcerated person or his representatives."});
+    if(notify) blocks.push({kind:"para", text:"I also ask to be notified of this hearing and of any future hearing or release decision involving him."});
+    blocks.push({kind:"para", text:"Thank you for considering my statement."});
+    blocks.push({kind:"gap"});
+    blocks.push({kind:"line", text:"Sincerely,"});
+    blocks.push({kind:"gap"});
+    blocks.push({kind:"line", text:displayName});
+    return blocks;
+  }
+
+  function renderPreview(){
+    var blocks = buildDoc();
+    var out = [];
+    blocks.forEach(function(b){
+      if(b.kind==="gap"){ out.push(""); }
+      else { out.push(b.text); }
+    });
+    $("preview").textContent = out.join("\n");
+    validate();
+  }
+
+  function validate(){
+    var ok = $("f-name").value.trim().length>0 && $("f-impact").value.trim().length>0;
+    $("downloadBtn").disabled = !ok;
+    $("warn").textContent = ok ? "" : "Add at least your name and your impact statement to download.";
+    return ok;
+  }
+
+  function makePDF(){
+    if(!validate()) return;
+    var jsPDF = window.jspdf.jsPDF;
+    var doc = new jsPDF({unit:"pt", format:"letter"});
+    var margin = 72, top = 72;
+    var pageW = doc.internal.pageSize.getWidth();
+    var pageH = doc.internal.pageSize.getHeight();
+    var maxW = pageW - margin*2;
+    var y = top;
+    doc.setFont("times","normal");
+    doc.setFontSize(12);
+    var lineH = 16, paraGap = 8;
+
+    function ensure(space){
+      if(y + space > pageH - margin){ doc.addPage(); y = top; }
+    }
+    var blocks = buildDoc();
+    blocks.forEach(function(b){
+      if(b.kind==="gap"){ y += lineH*0.7; return; }
+      if(b.kind==="line"){
+        ensure(lineH);
+        doc.setFont("times","normal");
+        doc.text(b.text, margin, y);
+        y += lineH;
+        return;
+      }
+      var bold = (b.kind==="reline");
+      doc.setFont("times", bold ? "bold" : "normal");
+      var lines = doc.splitTextToSize(b.text, maxW);
+      for(var i=0;i<lines.length;i++){
+        ensure(lineH);
+        doc.text(lines[i], margin, y);
+        y += lineH;
+      }
+      y += paraGap;
+    });
+    doc.save("Parole-Statement-AnandJon-AB1337.pdf");
+  }
+
+  // wire up
+  var ids = ["f-name","f-contact","f-private","f-date","f-connection","f-impact","f-contacted","f-contact-details","f-reason","f-confidential","f-notify"];
+  ids.forEach(function(id){
+    var el = $(id);
+    el.addEventListener("input", renderPreview);
+    el.addEventListener("change", renderPreview);
+  });
+  $("downloadBtn").addEventListener("click", makePDF);
+  $("printBtn").addEventListener("click", function(){ window.print(); });
+
+  // default date to today
+  (function(){
+    var d = new Date();
+    var mm = String(d.getMonth()+1).padStart(2,"0");
+    var dd = String(d.getDate()).padStart(2,"0");
+    $("f-date").value = d.getFullYear()+"-"+mm+"-"+dd;
+  })();
+  renderPreview();
+</script>
+</body>
+</html>

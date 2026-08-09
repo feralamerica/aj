@@ -120,6 +120,10 @@
     <form id="form" aria-label="Parole statement builder">
       <fieldset>
         <legend>About you</legend>
+        <div class="check">
+          <input type="checkbox" id="f-victim" checked />
+          <label for="f-victim">I am a victim in this case. Uncheck this if you are writing as someone affected by his actions but not a victim of the crimes, for example a member of the public, an advocate, or a journalist.</label>
+        </div>
         <div class="field">
           <label for="f-name">Your full name</label>
           <input type="text" id="f-name" autocomplete="off" placeholder="e.g., Jane Doe" />
@@ -131,7 +135,7 @@
         </div>
         <div class="check">
           <input type="checkbox" id="f-private" checked />
-          <label for="f-private">Keep my contact information private. Print "Address on file with CDCR Victim Services" instead. (Recommended if you have registered with victim services.)</label>
+          <label for="f-private">Keep my contact information private. Do not print my address on the letter.</label>
         </div>
         <div class="field">
           <label for="f-date">Date</label>
@@ -233,6 +237,7 @@
   // kind: 'line' (tight single line), 'para' (wrapped), 'reline' (bold wrapped), 'gap'
   function buildDoc(){
     var name = $("f-name").value.trim();
+    var victim = $("f-victim").checked;
     var priv = $("f-private").checked;
     var contact = $("f-contact").value.trim();
     var dateStr = fmtDate($("f-date").value);
@@ -244,7 +249,7 @@
     var confid = $("f-confidential").checked;
     var notify = $("f-notify").checked;
 
-    var senderContact = priv ? "Address on file with CDCR Victim Services" : contact;
+    var senderContact = priv ? (victim ? "Address on file with CDCR Victim Services" : "Contact information available on request") : contact;
     var displayName = name || "[your name]";
 
     var blocks = [];
@@ -257,7 +262,10 @@
     blocks.push({kind:"reline", text:RE_LINE});
     blocks.push({kind:"gap"});
     blocks.push({kind:"para", text:"Dear Members of the Board:"});
-    blocks.push({kind:"para", text:"My name is " + displayName + ", and I am a victim in this case. I am writing to ask you to deny parole to Anand Jon Alexander and to find him unsuitable for release."});
+    var opener = victim
+      ? "My name is " + displayName + ", and I am a victim in this case. I am writing to ask you to deny parole to Anand Jon Alexander and to find him unsuitable for release."
+      : "My name is " + displayName + ". I have been impacted by the actions of Anand Jon Alexander, and I am writing to ask you to deny parole to him and to find him unsuitable for release.";
+    blocks.push({kind:"para", text:opener});
     if(connection) blocks.push({kind:"para", text:connection});
     blocks.push({kind:"para", text: impact || "[Describe, in your own words, how what he did has affected your life.]"});
     if(contacted){
@@ -341,7 +349,7 @@
   }
 
   // wire up
-  var ids = ["f-name","f-contact","f-private","f-date","f-connection","f-impact","f-contacted","f-contact-details","f-reason","f-confidential","f-notify"];
+  var ids = ["f-name","f-victim","f-contact","f-private","f-date","f-connection","f-impact","f-contacted","f-contact-details","f-reason","f-confidential","f-notify"];
   ids.forEach(function(id){
     var el = $(id);
     el.addEventListener("input", renderPreview);
